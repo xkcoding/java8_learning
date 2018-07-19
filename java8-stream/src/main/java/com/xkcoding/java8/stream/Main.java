@@ -38,6 +38,7 @@ public class Main {
 
 		// 按照年龄倒序排序
 		users = users.stream().sorted(Comparator.comparing(User::getAge).reversed()).collect(Collectors.toList());
+
 	}
 
 	/**

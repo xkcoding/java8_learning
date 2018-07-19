@@ -61,7 +61,7 @@ public class Main {
 			}
 		});
 		// 使用 lambda
-		Thread thread2 = new Thread(() -> log.info("测试线程2"));
+		Thread thread2 = new Thread(() -> log.info("测试线程2"),"test");
 
 
 		thread1.start();

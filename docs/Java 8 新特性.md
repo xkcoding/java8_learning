@@ -257,7 +257,7 @@ List<String> list = new ArrayList<>();
 Java SE7 只支持有限的类型推断：只有构造器的参数化类型在上下文中被显著的声明了，你才可以使用类型推断，否则不行。
 
 ```java
-List<String> list = new ArrayList<>();l
+List<String> list = new ArrayList<>();
 list.add("A"); 
 //这个不行 
 list.addAll(new ArrayList<>()); 
@@ -381,7 +381,7 @@ PS：个人理解类似前端 ES6 的箭头函数
 函数式接口的抽象方法的签名称为函数描述符。
 所以为了应用不同的Lambda表达式，你需要一套能够描述常见函数描述符的函数式接口。
 
-### Lambdas及函数式接口的例子
+### Lambda 及函数式接口的例子
 
 | 使用案例 | Lambda 的例子 | 对应的函数式接口 |
 |:-----:|:--------|:-------|
@@ -608,7 +608,7 @@ List<Person> result = list.stream()
 如，获取每个人的姓名(实则是将Perosn类型转换成String类型)：
 
 ```java
-List<Person> result = list.stream()
+List<String> result = list.stream()
                     .map(Person::getName)
                     .collect(Collectors.toList());
 ```
@@ -730,7 +730,7 @@ reduce函数接收两个参数：
 int age = list.stream().reduce(0, (person1,person2)->person1.getAge()+person2.getAge());
 ```
 
-1. reduce的第一个参数表示初试值为0；
+1. reduce的第一个参数表示初始值为0；
 2. reduce的第二个参数为需要进行的归约操作，它接收一个拥有两个参数的Lambda表达式，reduce会把流中的元素两两输给Lambda表达式，最后将计算出累加之和。
 
 **元素求和：使用Integer.sum函数求和**
@@ -791,7 +791,7 @@ OptionalInt maxAge = list.stream()
 | `reduce` | 终端 | `Optional<T>` | `BinaryOperator<T>` | `(T, T) -> T` |
 | `count` | 终端 | `long` | | |
 
-### Collector 收集
+### Collectors 收集
 
 收集器用来将经过筛选、映射的流进行最后的整理，可以使得最后的结果以不同的形式展现。
 `collect` 方法即为收集器，它接收 `Collector` 接口的实现作为具体收集器的收集方法。
@@ -1397,7 +1397,7 @@ Duration duration = Duration.between(first, second);
 
 **访问Duration的时间**
 
-一个Duration对象里有两个域：纳秒值（小于一秒的部分），秒钟值（一共有几秒），他们的组合表达了时间长度。注意屯使用System.getCurrentTimeMillis()时不同，Duration不包含毫秒这个属性。
+一个Duration对象里有两个域：纳秒值（小于一秒的部分），秒钟值（一共有几秒），他们的组合表达了时间长度。注意与使用System.getCurrentTimeMillis()时不同，Duration不包含毫秒这个属性。
 你可以通过以下两个方法得到它们的值：
 
 ```java
